@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Vector Embedding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #003d82;
+        }
+
+
+
+    </style>
+    <script>
+    <!-- Improves user experience by providing immediate feedback without the need for a server request. -->
+
+        function validateForm() {
+            var word = document.forms["wordForm"]["word"].value;
+            if (word.trim().split(/\s+/).length > 1) {
+                alert("Please enter only one word.");
+                return false;
+            }
+            return true;
+        }
+
+
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <form name="wordForm" action="/calculate_embedding" method="post" onsubmit="return validateForm()">
+        <input type="text" name="word" placeholder="Enter a word"/>
+        <input type="submit" value="Get Embedding"/>
+    </form>
+</div>
+</body>
+</html>
